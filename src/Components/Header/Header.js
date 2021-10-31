@@ -1,47 +1,38 @@
-import Button from '@restart/ui/esm/Button';
-import React from 'react';
-import { Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import React from "react";
+import "./Header.css";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import { BiLogInCircle } from 'react-icons/bi';
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
-    return (
-        <Navbar bg="light" expand="lg">
-  <Container fluid>
-    <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-    <Navbar.Toggle aria-controls="navbarScroll" />
-    <Navbar.Collapse id="navbarScroll">
-      <Nav
-        className="mx-auto my-2 my-lg-0"
-        style={{ maxHeight: '100px' }}
-        navbarScroll
-      >
-        <Nav.Link href="#action1">Home</Nav.Link>
-        <Nav.Link href="#action2">Link</Nav.Link>
-        <NavDropdown title="Link" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">
-            Something else here
-          </NavDropdown.Item>
-        </NavDropdown>
-        <Nav.Link href="#" disabled>
-          Link
-        </Nav.Link>
-      </Nav>
-      <Form className="d-flex">
-        <FormControl
-        
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-        />
-        <Button variant="outline-success">Search</Button>
-      </Form>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-    );
+  const {user, logOut}= useAuth();
+  return (
+    <div className='padding'>
+      <Navbar className='header bg-dark' expand="lg" fixed="top">
+        <Container>
+          <NavLink to="/home"><img className='w-100' src="http://www.soaptheme.net/html/travelo/images/logo.png" alt="" /></NavLink>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto mt-3">
+              <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/home">Home</NavLink>
+              {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/myBooking">My Booking</NavLink>}
+              {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/allBookingInfo">Total Booking Info</NavLink>}
+              {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/addService">Add Service</NavLink>}
+              <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/contact">Contact</NavLink>
+            </Nav>
+            <Nav className='mt-3'>
+            {user.displayName ? <div>
+              <span className='text-white mx-2'>{user.displayName}</span>
+               <button onClick={logOut} className='btn btn-danger'>LogOut</button>
+              </div>:
+              <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white btn btn-primary' to="/login"><BiLogInCircle/> LogIn</NavLink>}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
+  );
 };
 
 export default Header;
