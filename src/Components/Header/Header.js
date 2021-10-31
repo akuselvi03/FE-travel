@@ -16,10 +16,11 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto mt-3">
               <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/home">Home</NavLink>
-              {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/myBooking">My Booking</NavLink>}
+              <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/feature">Features</NavLink>
+              {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/my-booking">My Booking</NavLink>}
               {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/allBookingInfo">Total Booking Info</NavLink>}
               {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/addService">Add Service</NavLink>}
-              <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/contact">Contact</NavLink>
+              <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/footer">Contact</NavLink>
             </Nav>
             <Nav className='mt-3'>
             {user.displayName ? <div>

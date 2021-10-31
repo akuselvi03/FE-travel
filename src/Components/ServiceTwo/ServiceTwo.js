@@ -8,7 +8,7 @@ const ServiceTwo = () => {
   useEffect(() => {
     axios
       .get(
-        "https://limitless-hollows-06705.herokuapp.com/services?categories=low"
+        "https://frightening-dungeon-59739.herokuapp.com/travels"
       )
       .then((res) => {
         setServices(res.data);

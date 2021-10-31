@@ -9,6 +9,9 @@ import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import Home from './Components/Home/Home';
 import Login from './Login/Login/Login';
 import Footer from './Components/Footer/Footer';
+import Features from './Components/Features/Features';
+import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
+import MyBooking from './Components/MyBooking/MyBooking';
 
 
 function App() {
@@ -28,10 +31,19 @@ function App() {
         <Route path="/login">
           <Login></Login>
         </Route>
+        <Route path="/feature">
+          <Features></Features>
+        </Route>
+        <Route path="/contact">
+          <Footer></Footer>
+        </Route>
+        <PrivateRoute path="/my-booking">
+          <MyBooking></MyBooking>
+        </PrivateRoute>
+
 
         </Switch>
  <Footer></Footer>
-
       </Router>
 
     </AuthProvider>

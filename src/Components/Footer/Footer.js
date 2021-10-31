@@ -82,7 +82,7 @@ const Footer = () => {
       </Container>
       <hr />
       <div className='mt-5 text-center'>
-          <span>Copyright © 2021 Travel Agency || Develop by Md Hasibul Hasan </span>
+          <span>Copyright © 2021 Travel Agency || Develop by Raihan Kawser </span>
       </div>
     </div>
   );
