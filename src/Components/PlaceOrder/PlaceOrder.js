@@ -45,7 +45,7 @@ const PlaceOrder = () => {
     data.title = service.title;
     data.status = "Pending...";
     axios
-      .post("http://localhost:5000/userOrder", data)
+      .post("https://frightening-dungeon-59739.herokuapp.com/userOrder", data)
       .then((res) => {
         // user notification
         if (res.data?.serviceAdded) {

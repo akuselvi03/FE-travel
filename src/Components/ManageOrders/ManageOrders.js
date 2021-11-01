@@ -13,7 +13,7 @@ const ManageOrders = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allOrder")
+      .get("https://frightening-dungeon-59739.herokuapp.com/allOrder")
       .then((res) => {
         setAllOrder(res.data);
       })
@@ -33,7 +33,7 @@ const ManageOrders = () => {
       if (willDelete) {
         axios
           .delete(
-            `http://localhost:5000/userOrder/${id}/${uid}`
+            `https://frightening-dungeon-59739.herokuapp.com/userOrder/${id}/${uid}`
           )
           .then((res) => {
             console.log(res.data);
@@ -59,7 +59,7 @@ const ManageOrders = () => {
     // sid == serviceId and uid == userId
     axios
       .put(
-        `http://localhost:5000/userOrder/${id}/${uid}`
+        `https://frightening-dungeon-59739.herokuapp.com/userOrder/${id}/${uid}`
       )
       .then((res) => {
         if (res.data.modifiedCount > 0) {
@@ -89,7 +89,7 @@ const ManageOrders = () => {
       style={{ minHeight: "100vh" }}
     >
       <Row>
-        <Col sm="12" md="8" className="text-start">
+        <Col sm="12" className="text-start">
           <div className="serviceOne mt-1 mt-md-5 pt-1 pt-md-4">
             <h6 className="fw-bold">Travelo Travel</h6>
             <h2

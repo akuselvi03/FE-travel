@@ -14,6 +14,7 @@ import ServiceTwo from './Components/ServiceTwo/ServiceTwo';
 import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
 import MyOrders from './Components/MyOrders/MyOrders';
 import ManageOrders from './Components/ManageOrders/ManageOrders';
+import AddNewService from './Components/AddNewService/AddNewService';
 
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
         </PrivateRoute>
         <PrivateRoute path="/all-booking">
         <ManageOrders></ManageOrders>
+        </PrivateRoute>
+        <PrivateRoute path="/add-service">
+          <AddNewService></AddNewService>
         </PrivateRoute>
 
 

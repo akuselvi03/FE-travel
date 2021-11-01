@@ -20,7 +20,7 @@ const Header = () => {
               <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/feature">Features</NavLink>
               {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/my-booking">My Booking</NavLink>}
               {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/all-booking">Manage Booking</NavLink>}
-              {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/addService">Add Service</NavLink>}
+              {user.displayName && <NavLink className='text-decoration-none me-3 fs-6 fw-bold text-white' to="/add-service">Add Service</NavLink>}
              
             </Nav>
             <Nav className='mt-3'>

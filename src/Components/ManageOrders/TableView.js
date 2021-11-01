@@ -35,12 +35,12 @@ const TableView = ({ allOrder, handleApproved, handleDelete }) => {
                 {/* action button  */}
                 <button
                   onClick={() => handleApproved(_id, userId)}
-                  className="_book-btn me-4"
+                  className="btn btn-info me-4"
                 >Approved</button>
-                <RiDeleteBin6Line
+                < button
                   onClick={() => handleDelete(_id, userId)}
-                  className="admin-delete-btn fs-3"
-                />
+                  className="btn btn-danger"
+                >Delete</button>
               </td>
             </tr>
           </tbody>

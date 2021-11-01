@@ -15,7 +15,7 @@ const MyOrders = () => {
     if (user.displayName) {
       axios
         .get(
-          `http://localhost:5000/userOrder/${user.uid}`
+          `https://frightening-dungeon-59739.herokuapp.com/userOrder/${user.uid}`
         )
         .then((res) => {
             setMyOrders(res.data);
@@ -35,7 +35,7 @@ const MyOrders = () => {
       if (willDelete) {
         axios
           .delete(
-            `http://localhost:5000/userOrder/${id}/${user.uid}`
+            `https://frightening-dungeon-59739.herokuapp.com/userOrder/${id}/${user.uid}`
           )
           .then((res) => {
             console.log(res.data);
@@ -59,12 +59,12 @@ const MyOrders = () => {
   return (
     <Container className="my-5 pt-5" >
       <Row>
-        <Col sm="12" md="8" className="text-start">
+        <Col sm="12" md="12" className="text-start">
           <div className="serviceOne mt-1 mt-md-5 pt-1 pt-md-4">
             <h6 className="fw-bold">My Orders</h6>
             <h2
               className="display-6 pb-3"
-              style={{ borderBottom: "3px solid #ffc107" }}
+              style={{ borderBottom: "3px solid #ff5227" }}
             >
               <span className="fw-bold">POPULAR </span>
               DESTINATIONS AND HOTEL
