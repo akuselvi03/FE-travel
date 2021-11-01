@@ -32,7 +32,7 @@ const ServiceCard = ({ service }) => {
         </Card.Body>
         <Card.Footer>
           <button
-            onClick={() => history.push(`/place_order/${_id}`)}
+            onClick={() => history.push(`/place-order/${_id}`)}
             className="_book-btn"
           >
             BOOK NOW

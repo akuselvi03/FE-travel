@@ -1,8 +1,7 @@
-import logo from './logo.svg';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Header from './Components/Header/Header';
-import Hero from './Components/Hero/Hero';
 import {BrowserRouter as Router} from "react-router-dom"
 import AuthProvider from './context/AuthProvider';
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
@@ -11,7 +10,10 @@ import Login from './Login/Login/Login';
 import Footer from './Components/Footer/Footer';
 import Features from './Components/Features/Features';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
-import MyBooking from './Components/MyBooking/MyBooking';
+import ServiceTwo from './Components/ServiceTwo/ServiceTwo';
+import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
+import MyOrders from './Components/MyOrders/MyOrders';
+import ManageOrders from './Components/ManageOrders/ManageOrders';
 
 
 function App() {
@@ -34,11 +36,17 @@ function App() {
         <Route path="/feature">
           <Features></Features>
         </Route>
-        <Route path="/contact">
-          <Footer></Footer>
+        <Route path="/services">
+          <ServiceTwo></ServiceTwo>
         </Route>
+        <PrivateRoute path="/place-order/:id">
+          <PlaceOrder></PlaceOrder>
+        </PrivateRoute>
         <PrivateRoute path="/my-booking">
-          <MyBooking></MyBooking>
+        <MyOrders></MyOrders>
+        </PrivateRoute>
+        <PrivateRoute path="/all-booking">
+        <ManageOrders></ManageOrders>
         </PrivateRoute>
 
 
