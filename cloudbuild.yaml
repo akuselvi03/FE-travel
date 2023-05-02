@@ -1,0 +1,10 @@
+steps:
+- name: node:14
+  entrypoint: npm
+  args: ['install', '--legacy-peer-deps']
+- name: node:14
+  entrypoint: sh
+  args: ['-c', 'NODE_OPTIONS=\'--openssl-legacy-provider\' npm run build']
+- name: gcr.io/cloud-builders/gcloud
+  args: ['app', 'deploy']
+  timeout: 1800s
