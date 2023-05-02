@@ -3,8 +3,8 @@ steps:
   entrypoint: npm
   args: ['install', '--legacy-peer-deps']
 - name: node:14
-  entrypoint: npm
-  args: ['run', 'build']
+  entrypoint: sh
+  args: ['-c', 'npm run build']
 - name: gcr.io/cloud-builders/gcloud
   args: ['app', 'deploy']
   timeout: 1800s
