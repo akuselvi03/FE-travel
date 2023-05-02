@@ -1,19 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Spinner} from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import swal from "sweetalert";
 import TableView from "./TableView";
 import useAuth from "../../hooks/useAuth";
 
-
 const ManageOrders = () => {
-
   const [allOrder, setAllOrder] = useState([]);
-  
 
   useEffect(() => {
     axios
-      .get("https://frightening-dungeon-59739.herokuapp.com/allOrder")
+      .get("https://backend-dot-tcc-088.et.r.appspot.com/allOrder")
       .then((res) => {
         setAllOrder(res.data);
       })
@@ -21,7 +18,6 @@ const ManageOrders = () => {
   }, []);
 
   const handleDelete = (id, uid) => {
-
     // sid == serviceId and uid == userId
     swal({
       title: "Are you sure?",
@@ -32,9 +28,7 @@ const ManageOrders = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(
-            `https://frightening-dungeon-59739.herokuapp.com/userOrder/${id}/${uid}`
-          )
+          .delete(`https://backend-dot-tcc-088.et.r.appspot.com/userOrder/${id}/${uid}`)
           .then((res) => {
             console.log(res.data);
             if (res.data.deletedCount > 0) {
@@ -58,14 +52,10 @@ const ManageOrders = () => {
   const handleApproved = (id, uid) => {
     // sid == serviceId and uid == userId
     axios
-      .put(
-        `https://frightening-dungeon-59739.herokuapp.com/userOrder/${id}/${uid}`
-      )
+      .put(`https://backend-dot-tcc-088.et.r.appspot.com/userOrder/${id}/${uid}`)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
-          const findItem = allOrder.find(
-            (order) => order._id === id && order.userId === uid
-          );
+          const findItem = allOrder.find((order) => order._id === id && order.userId === uid);
           if (findItem) {
             findItem.status = "approved";
             const remaining = allOrder.filter(
@@ -84,18 +74,12 @@ const ManageOrders = () => {
       .catch((err) => console.log(err.massage));
   };
   return (
-    <Container
-      className="my-5"
-      style={{ minHeight: "100vh" }}
-    >
+    <Container className="my-5" style={{ minHeight: "100vh" }}>
       <Row>
         <Col sm="12" className="text-start">
           <div className="serviceOne mt-1 mt-md-5 pt-1 pt-md-4">
             <h6 className="fw-bold">Travelo Travel</h6>
-            <h2
-              className="display-6 pb-3"
-              style={{ borderBottom: "3px solid #ff5227" }}
-            >
+            <h2 className="display-6 pb-3" style={{ borderBottom: "3px solid #ff5227" }}>
               <span className="fw-bold">MANAGE </span>
               All Booking Info
             </h2>
@@ -104,14 +88,12 @@ const ManageOrders = () => {
       </Row>
       <Row className="my-5">
         {allOrder.length > 0 ? (
-
-              <TableView
-                allOrder={allOrder}
-                handleApproved={handleApproved}
-                handleDelete={handleDelete}
-              ></TableView>
-             ):(
-           
+          <TableView
+            allOrder={allOrder}
+            handleApproved={handleApproved}
+            handleDelete={handleDelete}
+          ></TableView>
+        ) : (
           <Col sm="2" lg="1" className="mx-auto">
             <Spinner animation="border" variant="secondary" />
           </Col>

@@ -45,7 +45,7 @@ const PlaceOrder = () => {
     data.title = service.title;
     data.status = "Pending...";
     axios
-      .post("https://frightening-dungeon-59739.herokuapp.com/userOrder", data)
+      .post("https://backend-dot-tcc-088.et.r.appspot.com/userOrder", data)
       .then((res) => {
         // user notification
         if (res.data?.serviceAdded) {
@@ -73,32 +73,19 @@ const PlaceOrder = () => {
   return (
     <Container className="my-5 pt-5">
       <Row className="g-5" xs="1" md="2">
-        
         <Col className="mx-auto text-start mt-5">
           <div className="reg-form bg-info">
-            <h4
-              style={{ fontSize: "26px" }}
-              className="header-text text-center mb-3"
-            >
-              Confrim Order 
+            <h4 style={{ fontSize: "26px" }} className="header-text text-center mb-3">
+              Confrim Order
             </h4>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <label htmlFor="">
-                User Name 
-              </label>
+              <label htmlFor="">User Name</label>
               <br />
               <input {...register("name")} /> <br />
-              <label htmlFor="">
-                Email Address 
-              </label>{" "}
-              <br />
+              <label htmlFor="">Email Address</label> <br />
               <input {...register("email", { required: true })} />
-            
               <br />
-              <label htmlFor="">
-                Address 
-              </label>{" "}
-              <br />
+              <label htmlFor="">Address</label> <br />
               <input
                 type="text"
                 {...register("address", { required: true })}
@@ -107,13 +94,11 @@ const PlaceOrder = () => {
               <br />
               <label htmlFor="">Service Name</label> <br />
               <input {...register("service")} /> <br />
-              <label htmlFor="">
-               Travel Date 
-              </label>{" "}
-              <br />
+              <label htmlFor="">Travel Date</label> <br />
               <input type="date" {...register("date", { required: true })} />
               <br />
-              <button type="submit" className="rag-submit w-100">Confrim Book
+              <button type="submit" className="rag-submit w-100">
+                Confrim Book
               </button>
               {errors.exampleRequired && <span>This field is required</span>}
             </form>
@@ -132,7 +117,6 @@ const PlaceOrder = () => {
             <button className="_book-btn mt-2">Confirm Book</button>
           </div>
         </Col>
-
       </Row>
     </Container>
   );

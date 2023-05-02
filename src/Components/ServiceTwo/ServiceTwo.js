@@ -7,9 +7,7 @@ const ServiceTwo = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
     axios
-      .get(
-        "https://frightening-dungeon-59739.herokuapp.com/travels"
-      )
+      .get("https://backend-dot-tcc-088.et.r.appspot.com/travels")
       .then((res) => {
         setServices(res.data);
       })
@@ -22,10 +20,7 @@ const ServiceTwo = () => {
         <Col sm="12" md="8" className="text-start my-5">
           <div className="serviceOne mt-1 mt-md-5 pt-1 pt-md-4">
             <h6 className="fw-bold">SPECIAL OFFERS</h6>
-            <h2
-              className="display-6 pb-3"
-              style={{ borderBottom: "3px solid #ffc107" }}
-            >
+            <h2 className="display-6 pb-3" style={{ borderBottom: "3px solid #ffc107" }}>
               <span className="fw-bold">WORLDWIDE </span>
               TOUR PACKAGE
             </h2>
@@ -35,9 +30,7 @@ const ServiceTwo = () => {
 
       <Row sm="1" md="2" lg="3" xl="4" className="g-4 mb-5">
         {services.length > 0 ? (
-          services.map((service) => (
-            <ServiceCard key={service._id} service={service}></ServiceCard>
-          ))
+          services.map((service) => <ServiceCard key={service._id} service={service}></ServiceCard>)
         ) : (
           <Col sm="2" lg="1" className="mx-auto">
             <Spinner animation="border" variant="secondary" />
